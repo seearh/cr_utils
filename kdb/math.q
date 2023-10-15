@@ -7,6 +7,16 @@ tilPrime:{
   };
 
 /
+Prime factorisation
+\
+pf:{
+  fac:fac!count[fac:tilPrime 1+x]#0;
+  f:{(x:x div/d;y:@[y;d:key[y] where 0=x mod key y;1+])};
+  fac:where[fac<>0]#fac:last (.[f]/) (x;fac);
+  fac
+  };
+
+/
 Largest Common Multiple of an array of +ve integers
 \
 lcm:{ x1 last where all 0=x mod\: x1:1+til min x };
